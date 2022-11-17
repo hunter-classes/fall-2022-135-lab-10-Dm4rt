@@ -8,7 +8,14 @@ std::string getTime(Time time) {
   hour<<time.h;
   std::stringstream minutes;
   minutes<<time.m;
-  std::string formattedTime= hour.str() + ":" + minutes.str();
+  std::string zero;
+  if(time.m<10){
+    zero="0";
+  }
+  else{
+    zero="";
+  }
+  std::string formattedTime= hour.str() + ":" +zero+  minutes.str();
   return formattedTime;
 }
 
@@ -69,4 +76,22 @@ std::string getTimeSlot(TimeSlot ts){
 
   description = description + " [starts at " + getTime(ts.startTime) + ", and ends by " + getTime(endTime)+"]";
   return description;
+}
+
+TimeSlot scheduleAfter(TimeSlot ts, Movie nextMovie){
+  int hour = ts.startTime.h;
+  int min = ts.startTime.m;
+
+  int durHour = ts.movie.duration/60;
+  int durMin = ts.movie.duration%60;
+
+  hour += durHour;
+  min += durMin;
+  hour += min/60;
+  min = min%60;
+
+  TimeSlot nextTs = {nextMovie, {hour,min}};
+
+  return nextTs;
+  
 }

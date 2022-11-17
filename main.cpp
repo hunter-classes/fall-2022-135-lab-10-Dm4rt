@@ -15,5 +15,9 @@ int main(){
   TimeSlot movSlot = {mov,movTime};
 
   std::cout<<getTimeSlot(movSlot)<<std::endl;
+
+  Movie nextMov = {"Indiana Jones", ACTION,115};
+  TimeSlot movAfter = scheduleAfter(movSlot, nextMov);
+   std::cout<<getTimeSlot(movAfter)<<std::endl;
   return 0;
 }
