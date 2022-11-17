@@ -18,6 +18,13 @@ int main(){
 
   Movie nextMov = {"Indiana Jones", ACTION,115};
   TimeSlot movAfter = scheduleAfter(movSlot, nextMov);
-   std::cout<<getTimeSlot(movAfter)<<std::endl;
+  std::cout<<getTimeSlot(movAfter)<<std::endl;
+
+  Time etMovTime = {4,5};
+  Movie etMov = {"ET", THRILLER, 114};
+  TimeSlot etSlot = {etMov, etMovTime};
+  std::cout<<getTimeSlot(etSlot)<<std::endl;
+  std::cout<<timeOverlap(etSlot, movSlot)<<std::endl;
+  std::cout<<timeOverlap(movAfter, movSlot)<<std::endl;
   return 0;
 }
