@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 
 class Time { 
 public:
@@ -10,7 +11,7 @@ enum Genre {ACTION, COMEDY, DRAMA, ROMANCE, THRILLER};
 
 class Movie { 
 public: 
-    string title;
+  std::string title;
     Genre genre;     // only one genre per movie
     int duration;    // in minutes
 };
@@ -22,6 +23,9 @@ public:
 };
 
 //FUNCTIONS
+std::string getTime(Time time);
+std::string getMovie(Movie mv);
 int minutesSinceMidnight(Time time);
 int minutesUntil(Time earlier, Time later);
 Time addMinutes(Time time0, int min);
+std::string getTimeSlot(TimeSlot ts);
